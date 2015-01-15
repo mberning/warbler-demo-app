@@ -36,3 +36,5 @@ build/
 
 ## App specific ignores
 /public/lib/*
+/public/*.ppt
+*.war
