@@ -30,10 +30,13 @@ class DemoApp < Sinatra::Base
     file = DemoApp.relative_path('..', 'public', file_name)
     ppt = Java::OrgApachePoiHslfUsermodel::SlideShow.new
 
-    slide_data.each do |slide|
-      s = ppt.create_slide
-      t = s.add_title
-      t.set_text(slide['title'])
+    slide_data.each do |data|
+      slide = ppt.create_slide
+      slide_title = slide.add_title
+      slide_title.set_text(data['title'])
+      text_box = Java::OrgApachePoiHslfModel::TextBox.new
+      text_box.set_text(data['body'])
+      slide.add_shape(text_box)
     end
 
     File.open(DemoApp.relative_path(file), 'w+') do |f|

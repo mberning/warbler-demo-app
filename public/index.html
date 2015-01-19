@@ -19,28 +19,34 @@
             <download></download>
 
             <div class="container-fluid">
-                <h1>Create a PowerPoint using JRuby and POI</h1>
-
-                <div data-ng-repeat="slide in slides">
-                    <div class="container slide">
-                        <section class="row">
-                            Slide {{$index + 1}}
-                        </section>
-                        <section class="row">
-                            Title: <input type="text" data-ng-model="slide.title">
-                        </section>
-                        <section class="row">
-                            Body: <textarea data-ng-model="slide.body"></textarea>
-                        </section>
+                <section class="row">
+                    <h1>Create a PowerPoint using JRuby and POI</h1>
+                </section>
+                <section>
+                    <hr/>
+                </section>
+                <section class="row">
+                    <div class="col col-lg-1 col-xs-2">
+                        <button type="button" class="btn btn-info" data-ng-click="newSlide()">Add Slide</button>
+                        <br/><br/>
+                        <button type="button" class="btn btn-primary" data-ng-click="generateSlideshow()">Download</button>
                     </div>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-info" data-ng-click="newSlide()">Add Slide</button>
-                </div>
-
-                <br/>
-
-                <button type="button" class="btn btn-primary" data-ng-click="generateSlideshow()">Download</button>
+                    <div class="col col-lg-11 col-xs-10">
+                        <div data-ng-repeat="slide in slides">
+                            <div class="container slide">
+                                <section class="row number">
+                                    Slide {{$index + 1}}
+                                </section>
+                                <section class="row title">
+                                    Title: <input type="text" data-ng-model="slide.title">
+                                </section>
+                                <section class="row body">
+                                    Body: <textarea data-ng-model="slide.body"></textarea>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </body>
